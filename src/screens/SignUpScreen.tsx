@@ -3,17 +3,19 @@ import ScreenContainer from '../components/ScreenContainer';
 import { View, Text } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import Header from '../components/Header';
-
+import { GlobalStyle } from '../styling/GlobalStyle';
 function SignUpScreen() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <ScreenContainer>
-      <Header
-        title="Sign Up"
-        description="Create your account to get a started"
-      />
-      <View className="flex-2 flex-col gap-5">
+      <View className="flex-1">
+        <Header
+          title="Sign Up"
+          description="Create your account to get a started"
+        />
+      </View>
+      <View className="flex-1 flex-col gap-5">
         <View>
           <TextInput
             mode="flat"
@@ -67,6 +69,13 @@ function SignUpScreen() {
             Continue
           </Button>
         </View>
+      </View>
+      <View
+        className="flex-1"
+        style={[GlobalStyle.content, { zIndex: 9, top: 70 }]}
+      >
+        <Text className="text-small text-white">Already have an account?</Text>
+        <Text className="text-large text-center text-white">Sign Up</Text>
       </View>
     </ScreenContainer>
   );

@@ -22,7 +22,7 @@ function App() {
       <PaperProvider>
         <StatusBar />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Signin">
+          <Stack.Navigator initialRouteName="Signup">
             <Stack.Screen
               name="Signin"
               component={SignInScreen}

@@ -22,6 +22,7 @@ function ModalTC() {
         // onPressOut={}
       >
         <View style={[styles.modalContent, { height: screenHeight / 4 }]}>
+          <Text className="mb-5 text-bold"> Terms & Conditions</Text>
           <Text style={styles.modalText}>
             I hereby declare that the particulars given by me above are true and
             correct to best of my knowledge as on the date of making this
