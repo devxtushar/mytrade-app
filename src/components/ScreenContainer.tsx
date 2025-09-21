@@ -7,7 +7,7 @@ type Props = {
 };
 const ScreenContainer = ({ children, ...rest }: Props) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={GlobalStyle.container} {...rest}>
         <Image
           source={require('../assests/Top.png')}

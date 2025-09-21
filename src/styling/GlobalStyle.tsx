@@ -5,8 +5,7 @@ const { width, height } = Dimensions.get('window');
 export const GlobalStyle = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 15,
-    paddingVertical: 50,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   content: {

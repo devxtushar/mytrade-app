@@ -3,19 +3,21 @@ import ScreenContainer from '../components/ScreenContainer';
 import { View, Text } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import Header from '../components/Header';
-import { GlobalStyle } from '../styling/GlobalStyle';
-function SignUpScreen() {
+import BrandBox from '../components/BrandBox';
+import ModalTC from '../components/ModalTC';
+function SignUpScreen({ navigation }: any) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <ScreenContainer>
-      <View className="flex-1">
+      <BrandBox back={false} />
+      <View className="flex-1 justify-center items-center">
         <Header
           title="Sign Up"
           description="Create your account to get a started"
         />
       </View>
-      <View className="flex-1 flex-col gap-5">
+      <View className="flex-2 flex-col gap-5">
         <View>
           <TextInput
             mode="flat"
@@ -59,24 +61,35 @@ function SignUpScreen() {
           <Checkbox status={'checked'} />
           <Text>
             I agree to{' '}
-            <Text onPress={() => setModalVisible(true)}>
-              Terms and Conditions
+            <Text
+              onPress={() => setModalVisible(true)}
+              style={{ color: '#605790' }}
+            >
+              Terms and Conditions.
             </Text>
           </Text>
         </View>
-        <View>
-          <Button mode="contained" style={{ marginTop: 10 }}>
-            Continue
-          </Button>
+        <Button mode="contained" onPress={() => navigation.navigate('Verify')}>
+          Continue
+        </Button>
+      </View>
+      <View className="flex-1 justify-end items-center pb-5">
+        <View style={{ zIndex: 9 }}>
+          <Text className="text-small text-white">
+            Already have an account?
+          </Text>
+          <Text
+            className="text-large text-center text-white"
+            onPress={() => navigation.navigate('Signin')}
+          >
+            Login
+          </Text>
         </View>
       </View>
-      <View
-        className="flex-1"
-        style={[GlobalStyle.content, { zIndex: 9, top: 70 }]}
-      >
-        <Text className="text-small text-white">Already have an account?</Text>
-        <Text className="text-large text-center text-white">Sign Up</Text>
-      </View>
+      <ModalTC
+        openModal={true}
+        closeModal={() => setModalVisible(prev => !prev)}
+      />
     </ScreenContainer>
   );
 }

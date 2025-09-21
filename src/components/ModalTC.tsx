@@ -5,22 +5,24 @@ import {
   Modal,
   Dimensions,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
 
-function ModalTC() {
+type ModalTCProps = {
+  openModal: boolean;
+  closeModal: () => void;
+};
+function ModalTC({ openModal, closeModal }: ModalTCProps) {
   const screenHeight = Dimensions.get('window').height;
 
   return (
     <Modal
-      visible={false}
+      visible={true}
       transparent
       animationType="slide"
-      //   onRequestClose={}
+      onRequestClose={closeModal}
     >
-      <Pressable
-        style={styles.modalOverlay}
-        // onPressOut={}
-      >
+      <TouchableOpacity style={styles.modalOverlay}>
         <View style={[styles.modalContent, { height: screenHeight / 4 }]}>
           <Text className="mb-5 text-bold"> Terms & Conditions</Text>
           <Text style={styles.modalText}>
@@ -34,7 +36,7 @@ function ModalTC() {
             “Company Name”.
           </Text>
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </Modal>
   );
 }
@@ -49,10 +51,6 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 8,
     fontSize: 16,
-  },
-  link: {
-    color: '#007AFF',
-    textDecorationLine: 'underline',
   },
   modalOverlay: {
     flex: 1,
