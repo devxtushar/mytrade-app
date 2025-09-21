@@ -31,7 +31,7 @@ function VerifyScreen({ navigation }: any) {
         </View>
 
         {showNo && (
-          <View>
+          <View className="pt-5">
             <SetPin
               iconName="cellphone"
               title="Mobile OTP"
@@ -44,8 +44,16 @@ function VerifyScreen({ navigation }: any) {
           </View>
         )}
       </View>
-      <View className="flex-1 justify-center" style={{ bottom: 40 }}>
-        <Button mode="contained" onPress={() => setShowNo(false)}>
+      <View
+        className={showNo ? 'flex-1 justify-center' : 'flex-1 justify-end'}
+        style={{ bottom: 40 }}
+      >
+        <Button
+          mode="contained"
+          onPress={() =>
+            showNo ? setShowNo(false) : navigation.navigate('Pin')
+          }
+        >
           Verify
         </Button>
       </View>

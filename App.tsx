@@ -10,12 +10,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import SignUpScreen from './src/screens/SignUpScreen';
 import VerifyScreen from './src/screens/VerifyScreen';
 import PinScreen from './src/screens/PinScreen';
+import EnterScreen from './src/screens/EnterScreen';
 
 export type RootStackParamList = {
   Signin: undefined;
   Signup: undefined;
   Verify: undefined;
   Pin: undefined;
+  EnterPin: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -51,6 +53,13 @@ function App() {
             <Stack.Screen
               name="Pin"
               component={PinScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="EnterPin"
+              component={EnterScreen}
               options={{
                 headerShown: false,
               }}

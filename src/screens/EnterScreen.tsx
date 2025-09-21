@@ -1,45 +1,38 @@
 import React from 'react';
 import ScreenContainer from '../components/ScreenContainer';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button } from 'react-native-paper';
 import BrandBox from '../components/BrandBox';
 import Header from '../components/Header';
 import SetPin from '../components/SetPin';
 
-function PinScreen({ navigation }: any) {
+function EnterScreen({ navigation }: any) {
   return (
     <ScreenContainer>
       <BrandBox back={false} />
       <View className="flex-2 justify-end items-center" style={{ height: 150 }}>
-        <Header
-          title="Set PIN"
-          description="Choose a 4-Digit Pin for Quick Access"
-        />
+        <Header title="Enter PIN" description="Unlock using your PIN" />
       </View>
-      <View className="flex-1 flex-col gap-5 pt-10">
+      <View className="flex-1 flex-col gap-5 pt-10 justify-center">
         <View>
           <SetPin
             iconName="pin-outline"
-            title="Set PIN"
+            title="Enter PIN"
             values={{ value1: '1', value2: '5', value3: '8', value4: '2' }}
-            description="Create a secure 4-digit PIN to protect your account."
+            description="Please enter your 4-digit PIN to unlock access."
           />
         </View>
-
-        <View className="pt-5">
-          <SetPin
-            iconName="pin-outline"
-            title="Confirm PIN"
-            description="Re-enter your 4-digit PIN to protect your account."
-            values={{ value1: '', value2: '', value3: '', value4: '' }}
-          />
+        <View className="flex-row justify-end">
+          <Text style={{ color: '#605790' }}>Forgot PIN?</Text>
+        </View>
+        <View className="flex-row justify-center">
+          <Button mode="outlined" icon={'fingerprint'}>
+            Use Biometric
+          </Button>
         </View>
       </View>
       <View className={'flex-1 justify-center'} style={{ bottom: 40 }}>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate('EnterPin')}
-        >
+        <Button mode="contained" onPress={() => navigation.navigate('')}>
           Continue
         </Button>
       </View>
@@ -47,4 +40,4 @@ function PinScreen({ navigation }: any) {
   );
 }
 
-export default PinScreen;
+export default EnterScreen;
