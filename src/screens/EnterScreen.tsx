@@ -32,7 +32,7 @@ function EnterScreen({ navigation }: any) {
         </View>
       </View>
       <View className={'flex-1 justify-center'} style={{ bottom: 40 }}>
-        <Button mode="contained" onPress={() => navigation.navigate('')}>
+        <Button mode="contained" onPress={() => navigation.navigate('RootTab')}>
           Continue
         </Button>
       </View>
