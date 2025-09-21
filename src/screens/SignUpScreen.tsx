@@ -59,6 +59,7 @@ function SignUpScreen({ navigation }: any) {
         </View>
         <View className="flex flex-row items-center">
           <Checkbox status={'checked'} />
+
           <Text>
             I agree to{' '}
             <Text
@@ -87,8 +88,8 @@ function SignUpScreen({ navigation }: any) {
         </View>
       </View>
       <ModalTC
-        openModal={true}
-        closeModal={() => setModalVisible(prev => !prev)}
+        openModal={modalVisible}
+        closeModal={() => setModalVisible(false)}
       />
     </ScreenContainer>
   );

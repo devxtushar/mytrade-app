@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import ScreenContainer from '../components/ScreenContainer';
 import Header from '../components/Header';
 import BrandBox from '../components/BrandBox';
+import ModalTC from '../components/ModalTC';
 
 function SignInScreen({ navigation }: any) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -32,15 +33,12 @@ function SignInScreen({ navigation }: any) {
 
           <View className="flex-row items-center">
             <Checkbox status={'checked'} />
-            <Text>
-              I agree to{' '}
-              <Text
-                onPress={() => setModalVisible(true)}
-                style={{ color: '#605790' }}
-              >
-                Terms and Conditions.
+            <Pressable onPress={() => setModalVisible(true)}>
+              <Text>
+                I agree to{' '}
+                <Text style={{ color: '#605790' }}>Terms and Conditions.</Text>
               </Text>
-            </Text>
+            </Pressable>
           </View>
         </View>
         <Button
@@ -56,6 +54,10 @@ function SignInScreen({ navigation }: any) {
           Continue
         </Button>
       </View>
+      <ModalTC
+        openModal={modalVisible}
+        closeModal={() => setModalVisible(false)}
+      />
       <View className="flex-1 justify-end items-center pb-5">
         <View style={{ zIndex: 9 }}>
           <Text className="text-small text-white">Don't have an account?</Text>
