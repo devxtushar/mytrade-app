@@ -5,7 +5,7 @@
 Here are some screenshots of the app:
 
 
-![Sign In](src/assets/Screenshot%20(135).png)  
+![Sign In](assets/Screenshot%20(135).png)  
 ![Sign Up](src/assets/Screenshot%20(136).png)  
 ![Sign Up T&C](src/assets/Screenshot%20(137).png)  
 ![Sign In T&C](src/assets/Screenshot%20(138).png)  
